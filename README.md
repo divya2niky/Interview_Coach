@@ -33,6 +33,7 @@ Create a new GitHub repo and upload all these files (keep the `api/` folder stru
   - **Value:** `sk-ant-...` (your key from console.anthropic.com)
 - Click **Save**
 
+
 ### 4. Redeploy
 - Go to **Deployments** tab
 - Click the three dots on your latest deployment → **Redeploy**
