@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Coach — AI-Powered Mock Interviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LANDING -->
+  <div id="landing" class="screen active">
+    <nav>
+      <div class="logo">Interview<span>Coach</span></div>
+      <div class="nav-badge">Powered by Claude AI</div>
+    </nav>
+
+    <main class="hero">
+      <div class="hero-tag">AI Mock Interview Practice</div>
+      <h1 class="hero-title">Land the job<br /><em>you deserve.</em></h1>
+      <p class="hero-sub">Practice real interview questions for your target role. Get instant, honest feedback from an AI hiring manager — no scheduling, no judgment.</p>
+      <button class="cta-btn" id="go-to-setup">Start practicing free →</button>
+      <div class="hero-stats">
+        <div class="stat"><strong>Behavioral</strong><span>STAR-method feedback</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>Technical</strong><span>Role-specific questions</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>Instant</strong><span>Actionable coaching</span></div>
+      </div>
+    </main>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="card-float card-1">
+        <div class="cf-label">Question 3 of 5</div>
+        <div class="cf-text">"Tell me about a time you disagreed with your manager's decision."</div>
+      </div>
+      <div class="card-float card-2">
+        <div class="cf-score strong">Strong</div>
+        <div class="cf-fb">Good use of STAR method. Add more quantifiable outcomes.</div>
+      </div>
+      <div class="card-float card-3">
+        <div class="cf-role">Senior Product Manager</div>
+        <div class="cf-type">Behavioral · Mid-level</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETUP -->
+  <div id="setup" class="screen">
+    <div class="setup-wrap">
+      <button class="back-btn" id="back-to-landing">← Back</button>
+      <div class="setup-header">
+        <div class="logo small">Interview<span>Coach</span></div>
+        <h2>Set up your session</h2>
+        <p>Customize your interview to match your target role and goals.</p>
+      </div>
+
+      <div class="setup-form">
+        <div class="field-group">
+          <label class="field-label">What role are you interviewing for?</label>
+          <input type="text" id="role-input" class="text-input" placeholder="e.g. Senior Product Manager, Full Stack Engineer..." />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Interview type</label>
+          <div class="option-grid" id="type-options">
+            <div class="option-card selected" data-val="behavioral">
+              <div class="opt-icon">💬</div>
+              <div class="opt-name">Behavioral</div>
+              <div class="opt-desc">STAR-method questions about past experiences</div>
+            </div>
+            <div class="option-card" data-val="technical">
+              <div class="opt-icon">⚙️</div>
+              <div class="opt-name">Technical</div>
+              <div class="opt-desc">Role-specific knowledge and problem-solving</div>
+            </div>
+            <div class="option-card" data-val="case">
+              <div class="opt-icon">📋</div>
+              <div class="opt-name">Case study</div>
+              <div class="opt-desc">Structured problem-solving scenarios</div>
+            </div>
+            <div class="option-card" data-val="mixed">
+              <div class="opt-icon">🎯</div>
+              <div class="opt-name">Mixed</div>
+              <div class="opt-desc">Combination of all types</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Experience level</label>
+            <div class="chip-group" id="level-options">
+              <div class="chip" data-val="entry">Entry</div>
+              <div class="chip selected" data-val="mid">Mid</div>
+              <div class="chip" data-val="senior">Senior</div>
+              <div class="chip" data-val="lead">Lead</div>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Number of questions</label>
+            <div class="chip-group" id="count-options">
+              <div class="chip" data-val="3">3 quick</div>
+              <div class="chip selected" data-val="5">5 standard</div>
+              <div class="chip" data-val="8">8 full round</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="start-btn" id="start-btn" disabled>Begin interview →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERVIEW -->
+  <div id="interview" class="screen">
+    <div class="interview-layout">
+      <aside class="sidebar">
+        <div class="logo small">Interview<span>Coach</span></div>
+
+        <div class="session-info">
+          <div class="si-role" id="si-role">—</div>
+          <div class="si-meta" id="si-meta">—</div>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-label">Progress</div>
+          <div class="progress-steps" id="progress-steps"></div>
+        </div>
+
+        <div class="sidebar-tip">
+          <div class="tip-label">Tip</div>
+          <div class="tip-text" id="sidebar-tip-text">Use the STAR method: Situation, Task, Action, Result.</div>
+        </div>
+      </aside>
+
+      <main class="interview-main">
+        <div class="interviewer-bar">
+          <div class="iv-avatar">AI</div>
+          <div>
+            <div class="iv-name">Alex Chen</div>
+            <div class="iv-title">Senior Hiring Manager</div>
+          </div>
+          <div class="iv-status" id="iv-status">
+            <span class="status-dot"></span> Live session
+          </div>
+        </div>
+
+        <div class="question-panel" id="question-panel">
+          <div class="q-number" id="q-number">Question 1</div>
+          <div class="q-text" id="q-text">
+            <div class="thinking">
+              <div class="thinking-dot"></div>
+              <div class="thinking-dot"></div>
+              <div class="thinking-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="answer-panel" id="answer-panel">
+          <label class="answer-label">Your answer</label>
+          <textarea id="answer-input" placeholder="Take your time. Write as you would speak — clearly and specifically. Use the STAR method for behavioral questions: describe the Situation, your Task, the Actions you took, and the Results." rows="6"></textarea>
+          <div class="answer-actions">
+            <button class="btn-secondary" id="skip-btn">Skip this question</button>
+            <button class="btn-primary" id="submit-btn" disabled>Submit answer →</button>
+          </div>
+        </div>
+
+        <div class="feedback-panel" id="feedback-panel" style="display:none;">
+          <div class="feedback-header">
+            <div class="fb-label">Feedback</div>
+            <div id="fb-badges" class="fb-badges"></div>
+          </div>
+          <div class="fb-text" id="fb-text">
+            <div class="thinking">
+              <div class="thinking-dot"></div>
+              <div class="thinking-dot"></div>
+              <div class="thinking-dot"></div>
+            </div>
+          </div>
+          <div class="fb-example" id="fb-example" style="display:none;">
+            <div class="fb-example-label">Stronger answer might include:</div>
+            <div class="fb-example-text" id="fb-example-text"></div>
+          </div>
+          <button class="btn-primary wide" id="next-btn">Next question →</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="summary" class="screen">
+    <div class="summary-wrap">
+      <div class="summary-header">
+        <div class="logo small">Interview<span>Coach</span></div>
+        <div class="summary-badge">Session complete</div>
+        <h2 class="summary-title">Here's how you did</h2>
+        <div class="summary-role" id="summary-role">—</div>
+      </div>
+
+      <div class="score-grid">
+        <div class="score-card highlight">
+          <div class="sc-num" id="sc-avg">—</div>
+          <div class="sc-label">Average score</div>
+        </div>
+        <div class="score-card">
+          <div class="sc-num" id="sc-strong">—</div>
+          <div class="sc-label">Strong answers</div>
+        </div>
+        <div class="score-card">
+          <div class="sc-num" id="sc-total">—</div>
+          <div class="sc-label">Questions answered</div>
+        </div>
+      </div>
+
+      <div class="qa-review" id="qa-review"></div>
+
+      <div class="takeaways-section">
+        <h3>Key takeaways</h3>
+        <div id="takeaways-list">
+          <div class="thinking inline">
+            <div class="thinking-dot"></div>
+            <div class="thinking-dot"></div>
+            <div class="thinking-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-actions">
+        <button class="btn-primary" id="retry-btn">Practice again →</button>
+        <button class="btn-secondary" id="new-session-btn">New session</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
