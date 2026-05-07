@@ -46,6 +46,8 @@ The frontend calls `/api/claude` instead of Anthropic directly.
 The `api/claude.js` serverless function adds your secret key server-side and forwards the request.
 Users never see your key.
 
+
+
 ## Cost note
 Each 5-question session costs roughly $0.01 in API usage.
 Consider adding rate limiting if your app gets heavy traffic.
