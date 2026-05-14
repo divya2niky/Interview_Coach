@@ -59,3 +59,4 @@ Users never see your key.
 ## Cost note
 Each 5-question session costs roughly $0.01 in API usage.
 Consider adding rate limiting if your app gets heavy traffic.
+
