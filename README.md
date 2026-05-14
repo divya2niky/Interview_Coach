@@ -5,6 +5,8 @@ AI mock interview app powered by Claude. No API key required from users — key 
 ## Project structure
 
 
+
+
 ```
 interview-coach/
 ├── index.html        # Full app (landing, setup, interview, summary)
