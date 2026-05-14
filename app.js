@@ -309,4 +309,3 @@ async function showSummary() {
     $('takeaways-list').innerHTML = '<div class="takeaway-item">Review your answers above and look for patterns in the feedback.</div>';
   }
 }
-
