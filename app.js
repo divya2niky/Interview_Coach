@@ -219,7 +219,7 @@ function rotateTip() {
 
 async function loadQuestion() {
   state.inFollowUp = false;
-  $('q-number').textContent = `Question ${state.currentQ + 1} of ${state.count}`;
+  $('q-label').textContent = `Question ${state.currentQ + 1} of ${state.count}`;
   $('q-label').textContent = 'Question';
   $('q-label').className = 'q-number';
   $('q-text').innerHTML = thinkingHTML();
