@@ -1,0 +1,10 @@
+{
+  "name": "mockmate",
+  "version": "1.0.0",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "echo 'no build'"
+  }
+}
